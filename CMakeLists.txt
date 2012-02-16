@@ -75,10 +75,17 @@ ENDIF()
 #add depends to include path
 INCLUDE_DIRECTORIES ( library/depends )
 
-# build the static lua for dfusion
-INCLUDE_DIRECTORIES ( lua/include )
-add_subdirectory (lua)
+if(BUILD_DFUSION)
+  # build the static lua for dfusion
+  INCLUDE_DIRECTORIES ( lua/include )
+  add_subdirectory (lua)
+endif()
 
+if( BUILD_PLUGINS AND BUILD_MAPEXPORT)
+  # build the protobuf stuff for mapexport
+  add_subdirectory (depends/protobuf)
+endif()
+  
 # build the lib itself
 IF(BUILD_LIBRARY)
     add_subdirectory (library)
