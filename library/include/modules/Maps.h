@@ -35,7 +35,6 @@ distribution.
 #include "modules/Vegetation.h"
 #include <vector>
 #include "Virtual.h"
-#include "BitArray.h"
 #include "modules/Materials.h"
 
 #include "df/world.h"

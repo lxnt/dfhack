@@ -39,7 +39,7 @@ using namespace std;
 #include "ModuleFactory.h"
 #include "Core.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world_data.h"
 #include "df/world_underground_region.h"
 #include "df/world_geo_biome.h"

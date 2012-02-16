@@ -40,7 +40,7 @@ using namespace DFHack;
 using namespace DFHack::Simple;
 using namespace df::enums;
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/d_init.h"
 

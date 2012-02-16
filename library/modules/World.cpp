@@ -40,7 +40,7 @@ using namespace std;
 
 #include "MiscUtils.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/historical_figure.h"
 

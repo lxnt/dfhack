@@ -40,7 +40,7 @@ using namespace std;
 using namespace DFHack;
 using namespace DFHack::Simple;
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/building_def.h"
 #include "df/building_workshopst.h"

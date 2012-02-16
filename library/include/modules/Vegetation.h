@@ -31,7 +31,7 @@ distribution.
  */
 
 #include "Export.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/plant.h"
 
 namespace DFHack

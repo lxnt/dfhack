@@ -7,13 +7,13 @@ if(QT4_FOUND AND OPENGL_FOUND AND OPENGL_GLU_FOUND)
         set( QT_USE_QTOPENGL TRUE )
         INCLUDE( ${QT_USE_FILE} )
 
-        include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} "${dfhack_SOURCE_DIR}/library/depends/tthread")
+        include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR} "${dfhack_SOURCE_DIR}/depends/tthread")
 
         set ( qtplug_SRCS
             qtplug.cpp
             blankslade.cpp
             glwidget.cpp
-            ${dfhack_SOURCE_DIR}/library/depends/tthread/tinythread.cpp
+            ${dfhack_SOURCE_DIR}/depends/tthread/tinythread.cpp
         )
 
         SET ( qtplug_UI

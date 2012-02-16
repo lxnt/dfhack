@@ -1,4 +1,4 @@
-PROJECT (dfapi)
+PROJECT (dfhack-library)
 cmake_minimum_required(VERSION 2.8)
 
 ## build options
@@ -9,27 +9,15 @@ IF(UNIX)
     OPTION(MALLOC_FILL "Make malloc calls fill the allocated memory with 0xCC values." OFF)
 ENDIF()
 
-include_directories (include)
-include_directories (depends/md5)
-include_directories (depends/tinyxml)
-include_directories (depends/tthread)
-add_subdirectory (depends/protobuf)
-
-SET(PERL_EXECUTABLE "perl" CACHE FILEPATH "This is the perl executable to run in the codegen step. Tweak it if you need to run a specific one.")
-
-execute_process(COMMAND ${PERL_EXECUTABLE} xml/list.pl xml include/df ";"
-                WORKING_DIRECTORY ${dfapi_SOURCE_DIR}
-                OUTPUT_VARIABLE GENERATED_HDRS)
-
 SET(PROJECT_HDRS_INTERNAL
 )
-
+include_directories (include)
+include_directories (${DEPENDS_DIR}/dfapi/include)
 SET(PROJECT_HDRS
 include/Internal.h
 include/DFHack.h
 include/Console.h
 include/Core.h
-include/DataDefs.h
 include/Error.h
 include/Export.h
 include/Hooks.h
@@ -66,24 +54,12 @@ include/modules/Graphic.h
 
 SET(PROJECT_SRCS
 Core.cpp
-DataDefs.cpp
 DataStatics.cpp
-DataStaticsCtor.cpp
 MiscUtils.cpp
 PluginManager.cpp
 TileTypes.cpp
 VersionInfoFactory.cpp
 Virtual.cpp
-
-depends/md5/md5.cpp
-depends/md5/md5wrapper.cpp
-
-depends/tinyxml/tinystr.cpp
-depends/tinyxml/tinyxml.cpp
-depends/tinyxml/tinyxmlerror.cpp
-depends/tinyxml/tinyxmlparser.cpp
-
-depends/tthread/tinythread.cpp
 
 modules/Buildings.cpp
 modules/Constructions.cpp
@@ -134,23 +110,6 @@ SET_SOURCE_FILES_PROPERTIES( ${PROJECT_HDRS} PROPERTIES HEADER_FILE_ONLY TRUE )
 
 LIST(APPEND PROJECT_SRCS ${PROJECT_HDRS})
 
-# Generation
-
-SET_SOURCE_FILES_PROPERTIES(${GENERATED_HDRS} PROPERTIES HEADER_FILE_ONLY TRUE GENERATED TRUE)
-
-FILE(GLOB GENERATE_INPUT_SCRIPTS ${dfapi_SOURCE_DIR}/xml/*.pm ${dfapi_SOURCE_DIR}/xml/*.xslt)
-FILE(GLOB GENERATE_INPUT_XMLS ${dfapi_SOURCE_DIR}/xml/*.xml)
-
-ADD_CUSTOM_COMMAND(
-    OUTPUT ${dfapi_SOURCE_DIR}/include/df/static.inc
-    COMMAND ${PERL_EXECUTABLE} xml/codegen.pl xml include/df
-    WORKING_DIRECTORY ${dfapi_SOURCE_DIR}
-    MAIN_DEPENDENCY ${dfapi_SOURCE_DIR}/xml/codegen.pl
-    DEPENDS ${GENERATE_INPUT_XMLS} ${GENERATE_INPUT_SCRIPTS}
-)
-
-ADD_CUSTOM_TARGET(generate_headers DEPENDS ${dfapi_SOURCE_DIR}/include/df/static.inc)
-
 # Compilation
 
 ADD_DEFINITIONS(-DBUILD_DFHACK_LIB)
@@ -172,7 +131,7 @@ ELSE(WIN32)
 ENDIF()
 
 ADD_LIBRARY(dfhack SHARED ${PROJECT_SRCS})
-ADD_DEPENDENCIES(dfhack generate_headers)
+ADD_DEPENDENCIES (dfhack dfhack-md5 dfhack-tixml dfhack-tithrea dfapi)
 
 IF(WIN32)
     SET_TARGET_PROPERTIES(dfhack PROPERTIES OUTPUT_NAME "SDL" )

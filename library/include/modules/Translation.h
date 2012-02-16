@@ -34,7 +34,7 @@ distribution.
 #include "Module.h"
 #include "Types.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/language_word.h"
 #include "df/language_translation.h"
 #include "df/language_name.h"

@@ -39,7 +39,7 @@ using namespace std;
 using namespace DFHack;
 using namespace DFHack::Simple;
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/vermin.h"
 using namespace df::enums;

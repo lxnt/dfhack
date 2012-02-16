@@ -37,7 +37,7 @@ using namespace std;
 #include "Error.h"
 #include "MemAccess.h"
 #include "Core.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "Console.h"
 #include "Module.h"
 #include "VersionInfoFactory.h"
@@ -62,6 +62,8 @@ using namespace DFHack;
 #include <stdlib.h>
 #include <fstream>
 #include "tinythread.h"
+
+void DaStaInit(void);
 
 using namespace tthread;
 using namespace df::enums;
@@ -650,8 +652,7 @@ bool Core::Init()
     }
     */
     // initialize data defs
-    virtual_identity::Init(this);
-    df::global::InitGlobals();
+    DaStaInit();
 
     // create mutex for syncing with interactive tasks
     StackMutex = new mutex();
@@ -930,7 +931,7 @@ bool Core::SelectHotkey(int sym, int modifiers)
                 if (modifiers & 1)
                     idx += 8;
 
-                if (strict_virtual_cast<df::viewscreen_dwarfmodest>(screen) &&
+                if (df::strict_virtual_cast<df::viewscreen_dwarfmodest>(screen) &&
                     df::global::ui->main.mode != ui_sidebar_mode::Hotkeys)
                 {
                     cmd = df::global::ui->main.hotkeys[idx].name;

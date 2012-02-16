@@ -29,7 +29,7 @@ distribution.
 
 #include "Pragma.h"
 #include "Export.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/tiletype.h"
 
 namespace DFHack

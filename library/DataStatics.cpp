@@ -1,26 +1,45 @@
 #include "Internal.h"
-#include "DataDefs.h"
+#include "df/api.h"
+#include "Core.h"
 #include "MiscUtils.h"
 #include "VersionInfo.h"
+#include "MemAccess.h"
+#include "tinythread.h"
 
-#include "df/world.h"
-#include "df/world_data.h"
-#include "df/ui.h"
 
-namespace {
-    template<class T>
-    inline T &_toref(T &r) { return r; }
-    template<class T>
-    inline T &_toref(T *&p) { return *p; }
+static tthread::mutex *known_mutex = NULL;
+
+class dfhack_essentials : public df::api::essentials {
+    
+private:
+    std::map<std::string, void *> v_table;
+
+public:
+
+    std::string readClassName(void *vtable) { return DFHack::Core::getInstance().p->doReadClassName(vtable); }
+    void lock() { known_mutex->lock(); }
+    void unlock() { known_mutex->unlock(); }
+    std::map<std::string, void *>& getVtable() { return v_table; }
+    void * getGlobal(const char *name) {
+	void *tmp_;
+
+	if ( DFHack::Core::getInstance().vinfo->getAddress(name, tmp_) );
+	    return tmp_; 
+	return NULL;
+    }
+
+    void Init() {
+	if (!known_mutex)
+	    known_mutex = new tthread::mutex();
+
+    }
+};
+
+static dfhack_essentials desse;
+
+void DaStaInit(void) {
+    // this is to be called when offsetgroups are ready.
+    desse.Init();
+    df::global::InitGlobals(&desse);
 }
 
-#define INIT_GLOBAL_FUNCTION_PREFIX \
-    DFHack::VersionInfo *global_table_ = DFHack::Core::getInstance().vinfo; \
-    void * tmp_;
-
-#define INIT_GLOBAL_FUNCTION_ITEM(type,name) \
-    if (global_table_->getAddress(#name,tmp_)) name = (type*)tmp_;
-
-// Instantiate all the static objects
-#include "df/static.inc"
-#include "df/static.enums.inc"

@@ -2,23 +2,24 @@ PROJECT(mapexport)
 
 INCLUDE_DIRECTORIES (
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${dfhack_SOURCE_DIR}/library/depends/protobuf/
-    ${dfhack_SOURCE_DIR}/library/depends/zlib/
+    ${dfhack_SOURCE_DIR}/depends/protobuf/
+    ${dfhack_SOURCE_DIR}/depends/zlib/
 )
 
 LINK_DIRECTORIES(
-    ${dfhack_SOURCE_DIR}/library/depends/zlib/
+    ${dfhack_SOURCE_DIR}/depends/zlib/
 )
 
 #The protobuf sources we generate will require these headers
+SET(PROTOBUF_DIR ${dfhack_SOURCE_DIR}/depends)
 SET(PROJECT_HDRS
-${dfhack_SOURCE_DIR}/library/depends/protobuf/google/protobuf/stubs/once.h
-${dfhack_SOURCE_DIR}/library/depends/protobuf/google/protobuf/stubs/common.h
-${dfhack_SOURCE_DIR}/library/depends/protobuf/google/protobuf/io/coded_stream.h
-${dfhack_SOURCE_DIR}/library/depends/protobuf/google/protobuf/wire_format_lite_inl.h
-${dfhack_SOURCE_DIR}/library/depends/protobuf/google/protobuf/generated_message_util.h
-${dfhack_SOURCE_DIR}/library/depends/protobuf/google/protobuf/repeated_field.h
-${dfhack_SOURCE_DIR}/library/depends/protobuf/google/protobuf/extension_set.h
+${PROTOBUF_DIR}/google/protobuf/stubs/once.h
+${PROTOBUF_DIR}/google/protobuf/stubs/common.h
+${PROTOBUF_DIR}/google/protobuf/io/coded_stream.h
+${PROTOBUF_DIR}/google/protobuf/wire_format_lite_inl.h
+${PROTOBUF_DIR}/google/protobuf/generated_message_util.h
+${PROTOBUF_DIR}/google/protobuf/repeated_field.h
+${PROTOBUF_DIR}/google/protobuf/extension_set.h
 )
 
 SET(PROJECT_SRCS

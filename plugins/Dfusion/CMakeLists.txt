@@ -1,10 +1,10 @@
 include_directories(include)
-include_directories("${dfhack_SOURCE_DIR}/library/depends/tthread")
+include_directories("${dfhack_SOURCE_DIR}/depends/tthread")
 FILE(GLOB DFUSION_CPPS src/*.c*)
 set(
     DFUSION_CPPS_ALL
     dfusion.cpp
-	${dfhack_SOURCE_DIR}/library/depends/tthread/tinythread.cpp
+	${dfhack_SOURCE_DIR}/depends/tthread/tinythread.cpp
     ${DFUSION_CPPS}
 )
 FILE(GLOB DFUSION_HS include/*)

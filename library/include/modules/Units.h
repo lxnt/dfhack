@@ -30,7 +30,7 @@ distribution.
  */
 #include "Export.h"
 #include "modules/Items.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/unit.h"
 
 /**

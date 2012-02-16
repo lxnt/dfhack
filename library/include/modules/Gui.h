@@ -29,10 +29,9 @@ distribution.
 #include "Export.h"
 #include "Module.h"
 #include "Virtual.h"
-#include "BitArray.h"
 #include <string>
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/init.h"
 #include "df/ui.h"
 

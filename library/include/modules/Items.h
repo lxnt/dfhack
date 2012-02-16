@@ -33,7 +33,7 @@ distribution.
 #include "modules/Materials.h"
 #include "MemAccess.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/item.h"
 #include "df/item_type.h"
 #include "df/general_ref.h"

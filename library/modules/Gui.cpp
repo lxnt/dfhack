@@ -41,7 +41,7 @@ using namespace std;
 #include "MiscUtils.h"
 using namespace DFHack;
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/cursor.h"
 #include "df/viewscreen_dwarfmodest.h"
@@ -73,7 +73,7 @@ bool DFHack::default_hotkey(Core *, df::viewscreen *top)
 {
     // Default hotkey guard function
     for (;top ;top = top->parent)
-        if (strict_virtual_cast<df::viewscreen_dwarfmodest>(top))
+        if (df::strict_virtual_cast<df::viewscreen_dwarfmodest>(top))
             return true;
     return false;
 }
@@ -81,19 +81,19 @@ bool DFHack::default_hotkey(Core *, df::viewscreen *top)
 bool DFHack::dwarfmode_hotkey(Core *, df::viewscreen *top)
 {
     // Require the main dwarf mode screen
-    return !!strict_virtual_cast<df::viewscreen_dwarfmodest>(top);
+    return !!df::strict_virtual_cast<df::viewscreen_dwarfmodest>(top);
 }
 
 bool DFHack::unitjobs_hotkey(Core *, df::viewscreen *top)
 {
     // Require the main dwarf mode screen
-    return !!strict_virtual_cast<df::viewscreen_unitjobsst>(top);
+    return !!df::strict_virtual_cast<df::viewscreen_unitjobsst>(top);
 }
 
 bool DFHack::item_details_hotkey(Core *, df::viewscreen *top)
 {
     // Require the main dwarf mode screen
-    return !!strict_virtual_cast<df::viewscreen_itemst>(top);
+    return !!df::strict_virtual_cast<df::viewscreen_itemst>(top);
 }
 
 bool DFHack::cursor_hotkey(Core *c, df::viewscreen *top)
@@ -126,8 +126,8 @@ bool DFHack::workshop_job_hotkey(Core *c, df::viewscreen *top)
                 return false;
 
             df::building *selected = world->selected_building;
-            if (!virtual_cast<df::building_workshopst>(selected) &&
-                !virtual_cast<df::building_furnacest>(selected))
+            if (!df::virtual_cast<df::building_workshopst>(selected) &&
+                !df::virtual_cast<df::building_furnacest>(selected))
                 return false;
 
             // No jobs?

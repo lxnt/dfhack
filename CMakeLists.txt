@@ -72,9 +72,13 @@ IF(UNIX)
   SET(CMAKE_C_FLAGS "-fvisibility=hidden -m32 -march=i686 -mtune=generic")
 ENDIF()
 
-#add depends to include path
-INCLUDE_DIRECTORIES ( library/depends )
 
+#add depends to include path
+add_subdirectory (depends/md5)
+add_subdirectory (depends/tinyxml)
+add_subdirectory (depends/tthread)
+add_subdirectory (depends/dfapi)
+include_directories(depends/md5 depends/tinyxml depends/tthread depends/dfapi/include)
 if(BUILD_DFUSION)
   # build the static lua for dfusion
   INCLUDE_DIRECTORIES ( lua/include )
@@ -89,6 +93,7 @@ endif()
 # build the lib itself
 IF(BUILD_LIBRARY)
     add_subdirectory (library)
+    
     ## install the default documentation files
     install(FILES LICENSE Readme.html Compile.html DESTINATION ${DFHACK_USERDOC_DESTINATION})
 endif()

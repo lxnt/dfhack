@@ -3,7 +3,7 @@
  * \defgroup grp_vermin Wild vermin (ants, bees, etc)
  */
 #include "Export.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/vermin.h"
 
 namespace DFHack { namespace Simple { namespace Vermin

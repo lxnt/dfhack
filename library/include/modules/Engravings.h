@@ -29,7 +29,7 @@ distribution.
 * DF engravings
 */
 #include "Export.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/engraving.h"
 /**
  * \defgroup grp_engraving Engraving module parts

@@ -1,1 +1,3 @@
-ADD_LIBRARY(dfhack-tixml SHARED tinystr.cpp tinyxml.cpp tinyxmlerror.cpp tinyxmlparser.cpp)
+PROJECT(dfhack-tixml)
+
+ADD_LIBRARY(dfhack-tixml tinystr.cpp tinyxml.cpp tinyxmlerror.cpp tinyxmlparser.cpp)

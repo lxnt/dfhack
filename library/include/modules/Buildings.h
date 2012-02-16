@@ -24,7 +24,7 @@ distribution.
 
 #pragma once
 #include "Export.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/building.h"
 
 namespace DFHack

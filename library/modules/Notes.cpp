@@ -36,7 +36,7 @@ using namespace std;
 #include "ModuleFactory.h"
 #include "Core.h"
 #include "modules/Notes.h"
-#include <DataDefs.h>
+#include <df/api.h>
 #include "df/ui.h"
 using namespace DFHack;
 

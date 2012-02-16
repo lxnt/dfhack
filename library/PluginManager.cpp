@@ -28,7 +28,7 @@ distribution.
 #include "PluginManager.h"
 #include "Console.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 
 using namespace DFHack;
 

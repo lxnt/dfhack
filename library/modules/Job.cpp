@@ -39,7 +39,7 @@ using namespace std;
 #include "modules/Materials.h"
 #include "modules/Items.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/ui.h"
 #include "df/job.h"
@@ -71,7 +71,7 @@ df::job *DFHack::cloneJobStruct(df::job *job)
     {
         df::general_ref *ref = pnew->references[i];
 
-        if (virtual_cast<df::general_ref_unit_workerst>(ref))
+        if (df::virtual_cast<df::general_ref_unit_workerst>(ref))
             vector_erase_at(pnew->references, i);
         else
             pnew->references[i] = ref->clone();

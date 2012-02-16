@@ -32,9 +32,8 @@ distribution.
 #include "Export.h"
 #include "Module.h"
 #include "Types.h"
-#include "BitArray.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/material.h"
 #include "df/inorganic_raw.h"
 #include "df/plant_raw.h"
