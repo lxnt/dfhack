@@ -81,8 +81,8 @@ add_subdirectory (depends/dfapi)
 include_directories(depends/md5 depends/tinyxml depends/tthread depends/dfapi/include)
 if(BUILD_DFUSION)
   # build the static lua for dfusion
-  INCLUDE_DIRECTORIES ( lua/include )
-  add_subdirectory (lua)
+  INCLUDE_DIRECTORIES ( depends/lua/include )
+  add_subdirectory (depends/lua)
 endif()
 
 if( BUILD_PLUGINS AND BUILD_MAPEXPORT)
