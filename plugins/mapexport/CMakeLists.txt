@@ -1,8 +1,8 @@
 PROJECT(mapexport)
-
+SET(PROTOBUF_DIR ${dfhack_SOURCE_DIR}/depends/protobuf)
 INCLUDE_DIRECTORIES (
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${dfhack_SOURCE_DIR}/depends/protobuf/
+    ${PROTOBUF_DIR}
     ${dfhack_SOURCE_DIR}/depends/zlib/
 )
 
@@ -11,7 +11,7 @@ LINK_DIRECTORIES(
 )
 
 #The protobuf sources we generate will require these headers
-SET(PROTOBUF_DIR ${dfhack_SOURCE_DIR}/depends)
+
 SET(PROJECT_HDRS
 ${PROTOBUF_DIR}/google/protobuf/stubs/once.h
 ${PROTOBUF_DIR}/google/protobuf/stubs/common.h
