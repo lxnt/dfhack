@@ -20,7 +20,7 @@ using namespace std;
 #include "modules/Materials.h"
 #include "modules/MapCache.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/item.h"
 #include "df/world.h"
 #include "df/general_ref.h"

@@ -11,7 +11,7 @@ using namespace DFHack;
 #include <google/protobuf/io/gzip_stream.h>
 using namespace google::protobuf::io;
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "modules/Constructions.h"
 

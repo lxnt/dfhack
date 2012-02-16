@@ -4,7 +4,7 @@
 #include "PluginManager.h"
 #include "modules/Maps.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/item_actual.h"
 #include "df/unit.h"
 #include "df/unit_spatter.h"

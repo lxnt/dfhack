@@ -8,7 +8,7 @@
 #include "modules/Translation.h"
 #include "modules/Items.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/job.h"
 #include "df/job_item.h"

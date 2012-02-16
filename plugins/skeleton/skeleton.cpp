@@ -7,7 +7,7 @@
 #include <PluginManager.h>
 
 // DF data structure definition headers
-#include "DataDefs.h"
+#include "df/api.h"
 //#include "df/world.h"
 
 using namespace DFHack;

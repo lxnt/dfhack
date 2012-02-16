@@ -3,7 +3,7 @@
 #include "Export.h"
 #include "PluginManager.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/d_init.h"
 
 using std::vector;

@@ -21,7 +21,7 @@ using namespace std;
 
 #include "MiscUtils.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/world_data.h"
 #include "df/world_region_details.h"

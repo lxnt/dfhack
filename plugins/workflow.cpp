@@ -10,7 +10,7 @@
 #include "modules/Job.h"
 #include "modules/World.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/ui.h"
 #include "df/building_workshopst.h"

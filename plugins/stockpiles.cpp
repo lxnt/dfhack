@@ -3,7 +3,7 @@
 #include "Export.h"
 #include "PluginManager.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/ui.h"
 #include "df/building_stockpilest.h"
@@ -67,7 +67,7 @@ static bool copystock_guard(Core *c, df::viewscreen *top)
         return true;
     case BuildingItems:
     case QueryBuilding:
-        return !!virtual_cast<building_stockpilest>(world->selected_building);
+        return !!df::virtual_cast<building_stockpilest>(world->selected_building);
     default:
         return false;
     }
@@ -87,7 +87,7 @@ static command_result copystock(Core * c, vector <string> & parameters)
         return CR_OK;
     }
 
-    building_stockpilest *sp = virtual_cast<building_stockpilest>(world->selected_building);
+    building_stockpilest *sp = df::virtual_cast<building_stockpilest>(world->selected_building);
     if (!sp)
     {
         c->con.printerr("Selected building isn't a stockpile.\n");

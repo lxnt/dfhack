@@ -10,7 +10,7 @@
 #include "Export.h"
 #include "PluginManager.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "modules/Maps.h"
 #include "TileTypes.h"
 

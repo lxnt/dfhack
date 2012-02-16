@@ -5,7 +5,7 @@
 #include "Export.h"
 #include "PluginManager.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "TileTypes.h"
 #include "df/world.h"
 #include "df/map_block.h"

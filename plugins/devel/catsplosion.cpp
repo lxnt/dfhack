@@ -19,7 +19,7 @@ using namespace std;
 #include "Console.h"
 #include "Export.h"
 #include "PluginManager.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include <df/caste_raw.h>
 #include <df/creature_raw.h>
 

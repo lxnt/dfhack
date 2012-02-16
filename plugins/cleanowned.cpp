@@ -17,7 +17,7 @@ using namespace std;
 #include "modules/Items.h"
 #include "modules/Units.h"
 #include "modules/Translation.h"
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 
 using namespace DFHack;

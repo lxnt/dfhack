@@ -5,7 +5,7 @@
 #include "Export.h"
 #include "PluginManager.h"
 
-#include "DataDefs.h"
+#include "df/api.h"
 #include "df/world.h"
 #include "df/item.h"
 #include "df/builtin_mats.h"
