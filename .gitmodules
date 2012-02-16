@@ -6,4 +6,4 @@
 	url = git://github.com/peterix/DF2MC.git
 [submodule "depends/dfapi"]
 	path = depends/dfapi
-	url = git://github.com/lxnt/df-structures.git
+	url = git@github.com:lxnt/df-structures.git
