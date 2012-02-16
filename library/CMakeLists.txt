@@ -140,7 +140,7 @@ ENDIF()
 #effectively disables debug builds...
 SET_TARGET_PROPERTIES(dfhack  PROPERTIES DEBUG_POSTFIX "-debug" )
 
-TARGET_LINK_LIBRARIES(dfhack ${PROJECT_LIBS})
+TARGET_LINK_LIBRARIES(dfhack ${PROJECT_LIBS} dfapi dfhack-md5 dfhack-tithread dfhack-tixml)
 
 IF(UNIX)
     # On linux, copy our version of the df launch script which sets LD_PRELOAD
